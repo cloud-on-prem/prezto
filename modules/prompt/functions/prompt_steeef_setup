@@ -49,6 +49,8 @@ function prompt_steeef_setup {
       "%F{135}" # Purple
       "%F{161}" # Hotpink
       "%F{118}" # Limegreen
+      "%F{236}" # Grey
+      "%F{0}"   # Black
     )
   else
     _prompt_steeef_colors=(
@@ -57,6 +59,8 @@ function prompt_steeef_setup {
       "%F{magenta}"
       "%F{red}"
       "%F{green}"
+      "%F{grey}"
+      "%F{black}"
     )
   fi
 
@@ -87,8 +91,9 @@ function prompt_steeef_setup {
   # Define prompts.
   PROMPT="
 ${_prompt_steeef_colors[5]}%~%f "'${vcs_info_msg_0_}'"
-"'$python_info[virtualenv]'"$ "
-  RPROMPT=''
+"'$python_info[virtualenv]'"${_prompt_steeef_colors[7]} %f"
+  RPROMPT="${_prompt_steeef_colors[6]}%W %T%f"
+
 }
 
 prompt_steeef_setup "$@"
