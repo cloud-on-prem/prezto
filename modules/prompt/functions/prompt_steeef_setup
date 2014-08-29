@@ -90,10 +90,18 @@ function prompt_steeef_setup {
   # Set python-info parameters.
   zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
 
+  local os_icon="☢"
+
+  if [[ "$(uname)" == "Darwin" ]]; then
+    os_icon=""
+  elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
+    os_icon="✈"
+  fi
+
   # Define prompts.
   PROMPT="
 ${_prompt_steeef_colors[5]}%~%f "'${vcs_info_msg_0_}'"
-"'$python_info[virtualenv]'"${_prompt_steeef_colors[8]}✈ %f"
+"'$python_info[virtualenv]'"${_prompt_steeef_colors[8]} ${os_icon} %f"
   RPROMPT="${_prompt_steeef_colors[6]}%W %T%f"
 
 }
