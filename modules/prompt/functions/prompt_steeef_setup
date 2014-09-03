@@ -45,13 +45,14 @@ function prompt_steeef_setup {
   if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
     _prompt_steeef_colors=(
       "%F{81}"  # Turquoise
-      "%F{166}" # Orange
+      "%F{208}" # Orange
       "%F{135}" # Purple
       "%F{161}" # Hotpink
       "%F{118}" # Limegreen
       "%F{236}" # Grey
       "%F{0}"   # Black
       "%F{1}"   # Red
+      "%F{106}" # Green
     )
   else
     _prompt_steeef_colors=(
@@ -63,6 +64,7 @@ function prompt_steeef_setup {
       "%F{grey}"
       "%F{black}"
       "%F{red}"
+      "%F{green}"
     )
   fi
 
@@ -100,8 +102,8 @@ function prompt_steeef_setup {
 
   # Define prompts.
   PROMPT="
-${_prompt_steeef_colors[5]}%~%f "'${vcs_info_msg_0_}'"
-"'$python_info[virtualenv]'"${_prompt_steeef_colors[8]} ${os_icon} %f"
+${_prompt_steeef_colors[9]}%~%f "'${vcs_info_msg_0_}'"
+"'$python_info[virtualenv]'"${_prompt_steeef_colors[2]} ${os_icon} %f"
   RPROMPT="${_prompt_steeef_colors[6]}%W %T%f"
 
 }
